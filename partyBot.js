@@ -1,8 +1,8 @@
 // calling dependencies / making requirements
-const package  = require('./package.json'); // package file
+const config = require('./config.json'); // config file
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const p = `${package.prefix}`;
+const p = `${config.prefix}`;
 //Crash haltings
 process.on('uncaughtException', err => {
     return console.log(`Application Error: \n${err}`);
@@ -25,7 +25,7 @@ client.on('message', message => {
         if (!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) {
             return C.send(":warning: ERROR: You dont have permission to do this");
         }
-        let memRole = message.guild.roles.find("name", `@everyone`);
+        let memRole = message.guild.roles.find("name", `@moderater`);
         const VC = message.guild.members.get(message.author.id).voiceChannel;
         let args = message.content.split(" ").slice(1).join(" ");
         if (args.toLowerCase().startsWith('open')) {
@@ -102,4 +102,4 @@ client.on('message', message => {
         }
     }
 });
-client.login(`${package.token}`) //You can get this at https://discordapp.com/developers/applications/me
+client.login(`${config.token}`) //You can get this at https://discordapp.com/developers/applications/me

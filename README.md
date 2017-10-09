@@ -1,3 +1,2 @@
-# discordBot
-# discordBot
-# discordBot
+# PartyBot
+selfhosted invite bot for VC 
