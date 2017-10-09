@@ -1,8 +1,8 @@
 // calling dependencies / making requirements
-const config = require('./config.json'); // config file
+const package  = require('./package.json'); // package file
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const p = `${config.prefix}`;
+const p = `${package.prefix}`;
 //Crash haltings
 process.on('uncaughtException', err => {
     return console.log(`Application Error: \n${err}`);
@@ -102,4 +102,4 @@ client.on('message', message => {
         }
     }
 });
-client.login(`${config.token}`) //You can get this at https://discordapp.com/developers/applications/me
+client.login(`${package.token}`) //You can get this at https://discordapp.com/developers/applications/me
